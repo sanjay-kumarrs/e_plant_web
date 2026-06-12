@@ -15,7 +15,20 @@ const CartModel = require("./models/cart")
 const { discountModel } = require("./models/discount")
 
 
-mongoose.connect("mongodb+srv://dvishnu640:vishnu@cluster0.ju3eous.mongodb.net/plantdb?retryWrites=true&w=majority&appName=Cluster0")
+const mongoURI = process.env.MONGODB_URI || "mongodb+srv://dvishnu640:vishnu@cluster0.ju3eous.mongodb.net/plantdb?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(mongoURI)
+    .then(() => {
+        console.log("🍃 MongoDB Connection Established Successfully!");
+    })
+    .catch((err) => {
+        console.error("❌ MongoDB connection error:", err.message);
+        console.log("\n💡 Diagnostic Tips:");
+        console.log("1. Internet Connection: Ensure your device is online.");
+        console.log("2. DNS / Firewall: Some networks block MongoDB Atlas SRV records. Try switching your system DNS to Google DNS (8.8.8.8) or Cloudflare DNS (1.1.1.1).");
+        console.log("3. Local MongoDB: If running offline, you can run a local MongoDB instance and start the server with environment variable:");
+        console.log("   $env:MONGODB_URI=\"mongodb://localhost:27017/plantdb\"; node app.js\n");
+    });
 
 
 
