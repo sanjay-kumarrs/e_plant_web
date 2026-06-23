@@ -1,4 +1,4 @@
-# 🌿 Plant Store & Management System
+# 🌿 Plant Store & Management System.
 
 An elegant, full-stack web application designed for browsing, purchasing, and managing plants. The system consists of a dynamic React frontend powered by Tailwind CSS v4 and MDB React UI Kit, and a robust Express.js/Node.js backend connected to MongoDB Atlas.
 
